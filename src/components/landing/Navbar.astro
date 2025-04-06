@@ -1,0 +1,143 @@
+<nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <!-- Botón de menú móvil -->
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <!-- Icono: hamburguesa -->
+            <svg
+              id="icon-open"
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+            </svg>
+            <!-- Icono: cerrar -->
+            <svg
+              id="icon-close"
+              class="hidden h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+  
+        <!-- Logo e ítems de escritorio -->
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex shrink-0 items-center">
+            <a href="/" class="flex items-center">
+            <img
+              class="h-8 w-auto"
+              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+              alt="Logo"
+            />
+           
+        </a>
+
+          </div>
+          <div class="hidden sm:flex sm:items-center sm:justify-center w-full">
+            <div class="flex space-x-4">
+              <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Experiencia</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Proyectos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden sm:hidden px-2 pt-2 pb-3 space-y-1">
+      <a href="#" class="block bg-gray-900 text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Experiencia</a>
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Proyectos</a>
+      <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+  
+      const openMenu = () => {
+        if (menu) {
+          menu.classList.remove('hidden');
+        }
+        requestAnimationFrame(() => {
+          if (menu) {
+            menu.classList.remove('scale-y-0', 'opacity-0');
+          }
+          if (menu) {
+            menu.classList.add('scale-y-100', 'opacity-100');
+          }
+        });
+        if (menuButton) {
+          menuButton.setAttribute('aria-expanded', 'true');
+        }
+        if (iconOpen) {
+          iconOpen.classList.add('hidden');
+        }
+        if (iconClose) {
+          iconClose.classList.remove('hidden');
+        }
+      };
+  
+      const closeMenu = () => {
+        if (menu) {
+          menu.classList.remove('scale-y-100', 'opacity-100');
+        }
+        if (menu) {
+          menu.classList.add('scale-y-0', 'opacity-0');
+        }
+        if (menuButton) {
+          menuButton.setAttribute('aria-expanded', 'false');
+        }
+        if (iconOpen) {
+          iconOpen.classList.remove('hidden');
+        }
+        if (iconClose) {
+          iconClose.classList.add('hidden');
+        }
+        // Esperamos que la animación termine antes de ocultar del todo
+        setTimeout(() => {
+          if (menu && menu.classList.contains('scale-y-0')) {
+            menu.classList.add('hidden');
+          }
+        }, 300); // duración igual a Tailwind: duration-300
+      };
+  
+      if (menuButton) {
+        menuButton.addEventListener('click', () => {
+          const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+          expanded ? closeMenu() : openMenu();
+        });
+      }
+  
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          closeMenu(); // cerrar menú si el usuario hace clic en un enlace
+        });
+      });
+    });
+  </script>
+  
+  
