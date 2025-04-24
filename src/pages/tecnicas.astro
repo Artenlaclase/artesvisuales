@@ -10,7 +10,7 @@ import collage from '../assets/images/collage.jpg';
 import audiovisual from '../assets/images/audiovisual.jpg';
 import mosaico from '../assets/images/mosaico.jpg';
 import volumen from '../assets/images/volumen.png';
-import mascaras from '../assets/images/mascaras.jpg';
+import mascaras from '../assets/images/mascara.jpg';
 import lamparas from '../assets/images/lamparas.jpg';
 import diseño from '../assets/images/diseño.jpg';
 import dibujo from '../assets/images/dibujo.jpg';
@@ -34,14 +34,19 @@ if (typeof window !== 'undefined') {
 ---
 
 <Layout>
-  <section class="bg-gray-900 text-white min-h-screen pt-24 pb-16">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-12 text-center">Técnicas Artísticas</h1>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {tecnicas.map((tecnica) => (
-          <Card nombre={tecnica.nombre} imagen={tecnica.imagen} />
-        ))}
+    <section class="bg-gray-900 text-white min-h-screen pt-24 pb-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-12 text-center">Técnicas Artísticas</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {tecnicas.map((tecnica, index) => (
+            <Card
+              nombre={tecnica.nombre}
+              imagen={tecnica.imagen}
+              delay={index * 100} 
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-</Layout>
+    </section>
+  </Layout>
+  
