@@ -28,25 +28,28 @@ const tecnicas = [
 ];
 
 // Inicializar AOS en el cliente
-if (typeof window !== 'undefined') {
-  AOS.init();
-}
 ---
 
 <Layout>
-    <section class="bg-gray-900 text-white min-h-screen pt-24 pb-16">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-12 text-center">Técnicas Artísticas</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {tecnicas.map((tecnica, index) => (
-            <Card
-              nombre={tecnica.nombre}
-              imagen={tecnica.imagen}
-              delay={index * 100} 
-            />
-          ))}
-        </div>
+  <section class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen pt-24 pb-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">Técnicas Artísticas</h1>
+      <p class="text-lg text-center max-w-3xl mx-auto mb-12">20 años de experiencias en el aula</p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tecnicas.map((tecnica, index) => (
+          <Card
+            nombre={tecnica.nombre}
+            imagen={tecnica.imagen}
+            delay={index * 100} 
+          />
+        ))}
       </div>
-    </section>
-  </Layout>
-  
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import AOS from 'aos';
+  AOS.init();
+</script>
