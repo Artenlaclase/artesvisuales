@@ -1,31 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+import pintura from '../assets/images/pintura.jpg';
+import collage from '../assets/images/collage.jpg';
+import audiovisual from '../assets/images/audiovisual.jpg';
+import mosaico from '../assets/images/mosaico.jpg';
+import volumen from '../assets/images/volumen.png';
+import mascaras from '../assets/images/mascaras.jpg';
+import lamparas from '../assets/images/lamparas.jpg';
+import diseño from '../assets/images/diseño.jpg';
+import dibujo from '../assets/images/dibujo.jpg';
 
 const tecnicas = [
-  { nombre: "Pintura", imagen: "/assets/images/pintura.jpg" },
-  { nombre: "Collage", imagen: "/assets/images/collage.jpg" },
-  { nombre: "Audiovisual", imagen: "/assets/images/audiovisual.jpg" },
-  { nombre: "Mosaico", imagen: "/assets/images/mosaico.jpg" },
-  { nombre: "Volumen", imagen: "/assets/images/volumen.png" },
-  { nombre: "Máscaras", imagen: "/assets/images/mascaras.jpg" },
-  { nombre: "Lámparas", imagen: "/assets/images/lamparas.jpg" },
-  { nombre: "Diseño", imagen: "/assets/images/diseño.jpg" },
-  { nombre: "Dibujo", imagen: "/assets/images/dibujo.jpg" },
+  { nombre: "Pintura", imagen: pintura },
+  { nombre: "Collage", imagen: collage },
+  { nombre: "Audiovisual", imagen: audiovisual },
+  { nombre: "Mosaico", imagen: mosaico },
+  { nombre: "Volumen", imagen: volumen },
+  { nombre: "Máscaras", imagen: mascaras },
+  { nombre: "Lámparas", imagen: lamparas },
+  { nombre: "Diseño", imagen: diseño },
+  { nombre: "Dibujo", imagen: dibujo },
 ];
+
+// Inicializar AOS en el cliente
+if (typeof window !== 'undefined') {
+  AOS.init();
+}
 ---
 
 <Layout>
-  <section class="bg-gray-900 text-white  min-h-screen py-16">
+  <section class="bg-gray-900 text-white min-h-screen pt-24 pb-16">
     <div class="container mx-auto px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-12 text-center">Técnicas Artísticas</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tecnicas.map((tecnica) => (
-          <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-            <img src={tecnica.imagen} alt={tecnica.nombre} class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h2 class="text-2xl font-semibold text-center">{tecnica.nombre}</h2>
-            </div>
-          </div>
+          <Card nombre={tecnica.nombre} imagen={tecnica.imagen} />
         ))}
       </div>
     </div>

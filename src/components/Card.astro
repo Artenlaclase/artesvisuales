@@ -2,8 +2,12 @@
 const { nombre, imagen } = Astro.props;
 ---
 
-<div class="border border-white rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 bg-gray-800">
-  <img src={imagen} alt={nombre} class="w-full h-48 object-cover" />
+<div
+  class="border border-white rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 bg-gray-800"
+  data-aos="zoom-in"
+  data-aos-duration="800"
+>
+  <img src={imagen.src} alt={nombre} class="w-full h-48 object-cover" />
   <div class="p-4">
     <h2 class="text-xl font-semibold text-center">{nombre}</h2>
   </div>
