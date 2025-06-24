@@ -1,12 +1,12 @@
 ---
-import TecnicaPage from '../../components/TecnicaPage.astro';
-import audiovisual from '../../assets/images/audiovisual.jpg';
-import imagen1 from '../../assets/images/audiovisual1.jpg';
-import imagen2 from '../../assets/images/audiovisual2.jpg';
-import imagen3 from '../../assets/images/audiovisual3.jpg';
-import imagen4 from '../../assets/images/audiovisual4.jpg';
-import imagen5 from '../../assets/images/audiovisual5.jpg';
-import imagen6 from '../../assets/images/audiovisual6.jpg';
+import TecnicaPage from "../../components/TecnicaPage.astro";
+import audiovisual from "../../assets/images/audiovisual.jpg";
+import imagen1 from "../../assets/images/audiovisual1.jpg";
+import imagen2 from "../../assets/images/audiovisual2.jpg";
+import imagen3 from "../../assets/images/audiovisual3.jpg";
+import imagen4 from "../../assets/images/audiovisual4.jpg";
+import imagen5 from "../../assets/images/audiovisual5.jpg";
+import imagen6 from "../../assets/images/audiovisual6.jpg";
 // import video1 from '../../assets/videos/clip-aula.mp4'; // solo si usas video local
 ---
 
@@ -18,38 +18,375 @@ import imagen6 from '../../assets/images/audiovisual6.jpg';
   <div slot="planificaciones">
     <h2 class="text-2xl font-semibold mb-4">Planificaciones</h2>
     <ul class="list-disc list-inside space-y-2">
-      <li><a href="/docs/audiovisual-plan1.pdf" class="text-blue-400 underline">Planificación inicial 2023</a></li>
-      <li><a href="/docs/audiovisual-guion.pdf" class="text-blue-400 underline">Guión didáctico: creación de cortometraje</a></li>
+      <li>
+        <a href="/docs/audiovisual-plan1.pdf" class="text-blue-400 underline"
+          >Planificación inicial 2023</a>
+      </li>
+      <li>
+        <a href="/docs/audiovisual-guion.pdf" class="text-blue-400 underline"
+          >Guión didáctico: creación de cortometraje</a>
+      </li>
     </ul>
   </div>
 
   <div slot="galeria">
     <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
-      <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
-        <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
-      <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
-      <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
-      <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
+      <img
+        src={imagen1.src}
+        alt="Grabación 1"
+        class="rounded shadow gallery-image"
+        loading="lazy"
+        data-index="0"
+      />
+      <img
+        src={imagen2.src}
+        alt="Edición"
+        class="rounded shadow gallery-image"
+        loading="lazy"
+        data-index="1"
+      />
+      <img
+        src={imagen3.src}
+        alt="Grabación 2"
+        class="rounded shadow gallery-image"
+        loading="lazy"
+        data-index="2"
+      />
+      <img
+        src={imagen4.src}
+        alt="Edición 2"
+        class="rounded shadow gallery-image"
+        loading="lazy"
+        data-index="3"
+      />
+      <img
+        src={imagen5.src}
+        alt="Grabación 3"
+        class="rounded shadow gallery-image"
+        loading="lazy"
+        data-index="4"
+      />
+      <img
+        src={imagen6.src}
+        alt="Edición 3"
+        class="rounded shadow gallery-image"
+        loading="lazy"
+        data-index="5"
+      />
     </div>
   </div>
 
   <div slot="videos">
     <h2 class="text-2xl font-semibold mb-4">Videos Realizados</h2>
     <div class="aspect-w-16 aspect-h-9 mb-6">
-      <iframe src="https://www.youtube.com/embed/TuIDejemplo" title="Video de estudiantes" class="w-full h-full rounded shadow" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/nbpB3XbL9YE"
+        title="Video de estudiantes"
+        class="w-full h-full rounded shadow"
+        frameborder="0"
+        allowfullscreen></iframe>
+      <div
+        class="  mb-5 text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto"
+      >
+        Este video muestra el trabajo realizado por los estudiantes durante el
+        taller de expresión audiovisual del segundo semestre.
+      </div>
+      <iframe
+        src="https://www.youtube.com/embed/RTjjC-X_eKA"
+        title="Video de estudiantes"
+        class="w-full h-full rounded shadow"
+        frameborder="0"
+        allowfullscreen>
+      
+      </iframe>
+      <div
+        class="text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto"
+      >
+        Este video muestra el trabajo realizado por los estudiantes durante el
+        taller de expresión audiovisual del segundo semestre.
+      </div>
     </div>
-    {/*
+    {
+      /* https://www.youtube.com/watch?v=nbpB3XbL9YE RTjjC-X_eKA
     <video controls class="rounded-lg shadow w-full">
       <source src={video1} type="video/mp4" />
       Tu navegador no soporta este video.
     </video>
-    */}
+    */
+    }
   </div>
 
   <div slot="otros">
     <h2 class="text-2xl font-semibold mb-4">Otros Recursos</h2>
-    <p>Ejercicios prácticos, enlaces útiles o reflexiones docentes pueden ir aquí.</p>
+    <p>
+      Ejercicios prácticos, enlaces útiles o reflexiones docentes pueden ir
+      aquí.
+    </p>
   </div>
 </TecnicaPage>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev"
+      >&#8249;</button
+    >
+    <img class="lightbox-image" id="lightbox-image" alt="" />
+    <button class="lightbox-nav lightbox-next" id="lightbox-next"
+      >&#8250;</button
+    >
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+</div>
+
+<style>
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox-nav:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .lightbox-prev {
+    left: -60px;
+  }
+
+  .lightbox-next {
+    right: -60px;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 28px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox-close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    backdrop-filter: blur(5px);
+  }
+
+  .gallery-image {
+    cursor: pointer;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .gallery-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .lightbox-nav {
+      font-size: 20px;
+      padding: 10px 12px;
+    }
+
+    .lightbox-prev {
+      left: -45px;
+    }
+
+    .lightbox-next {
+      right: -45px;
+    }
+
+    .lightbox-close {
+      top: -40px;
+      right: -5px;
+      font-size: 24px;
+    }
+  }
+</style>
+
+<script>
+  class GalleryLightbox {
+    images;
+    lightbox;
+    lightboxImage;
+    lightboxClose;
+    lightboxPrev;
+    lightboxNext;
+    lightboxCounter;
+    currentIndex;
+
+    constructor() {
+      this.images = document.querySelectorAll(".gallery-image");
+      this.lightbox = document.getElementById("lightbox");
+      this.lightboxImage = document.getElementById("lightbox-image");
+      this.lightboxClose = document.getElementById("lightbox-close");
+      this.lightboxPrev = document.getElementById("lightbox-prev");
+      this.lightboxNext = document.getElementById("lightbox-next");
+      this.lightboxCounter = document.getElementById("lightbox-counter");
+      this.currentIndex = 0;
+
+      this.init();
+    }
+
+    init() {
+      // Agregar event listeners a cada imagen
+      this.images.forEach((img, index) => {
+        img.addEventListener("click", () => this.openLightbox(index));
+      });
+
+      // Event listeners para controles del lightbox (con null checks)
+      if (this.lightboxClose) {
+        this.lightboxClose.addEventListener("click", () =>
+          this.closeLightbox(),
+        );
+      }
+      if (this.lightboxPrev) {
+        this.lightboxPrev.addEventListener("click", () => this.prevImage());
+      }
+      if (this.lightboxNext) {
+        this.lightboxNext.addEventListener("click", () => this.nextImage());
+      }
+
+      // Cerrar lightbox al hacer click en el fondo
+      if (this.lightbox) {
+        this.lightbox.addEventListener("click", (e) => {
+          if (e.target === this.lightbox) {
+            this.closeLightbox();
+          }
+        });
+      }
+
+      // Navegación con teclado
+      document.addEventListener("keydown", (e) => {
+        if (this.lightbox && this.lightbox.classList.contains("active")) {
+          switch (e.key) {
+            case "Escape":
+              this.closeLightbox();
+              break;
+            case "ArrowLeft":
+              this.prevImage();
+              break;
+            case "ArrowRight":
+              this.nextImage();
+              break;
+          }
+        }
+      });
+    }
+
+    openLightbox(index: number) {
+      this.currentIndex = index;
+      this.updateImage();
+      if (this.lightbox) {
+        this.lightbox.classList.add("active");
+      }
+      document.body.style.overflow = "hidden"; // Prevenir scroll
+    }
+
+    closeLightbox() {
+      if (this.lightbox) {
+        this.lightbox.classList.remove("active");
+      }
+      document.body.style.overflow = ""; // Restaurar scroll
+    }
+
+    prevImage() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.images.length) % this.images.length;
+      this.updateImage();
+    }
+
+    nextImage() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+      this.updateImage();
+    }
+
+    updateImage() {
+      const currentImg = this.images[this.currentIndex] as HTMLImageElement;
+      const lightboxImg = this.lightboxImage as HTMLImageElement;
+      if (lightboxImg && currentImg) {
+        lightboxImg.src = currentImg.src;
+        lightboxImg.alt = currentImg.alt;
+      }
+      if (this.lightboxCounter) {
+        this.lightboxCounter.textContent = `${this.currentIndex + 1} / ${this.images.length}`;
+      }
+    }
+  }
+
+  // Inicializar la galería cuando se carga la página
+  document.addEventListener("DOMContentLoaded", () => {
+    new GalleryLightbox();
+  });
+</script>
