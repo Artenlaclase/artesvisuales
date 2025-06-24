@@ -1,0 +1,47 @@
+---
+import TecnicaPage from '../../components/TecnicaPage.astro';
+import audiovisual from '../../assets/images/audiovisual.jpg';
+import imagen1 from '../../assets/images/audiovisual1.jpg';
+import imagen2 from '../../assets/images/audiovisual2.jpg';
+// import video1 from '../../assets/videos/clip-aula.mp4'; // solo si usas video local
+---
+
+<TecnicaPage
+  nombre="Audiovisual"
+  descripcion="Exploramos el lenguaje audiovisual como herramienta pedagógica para la expresión artística, crítica y reflexión."
+  imagen={audiovisual}
+>
+  <div slot="planificaciones">
+    <h2 class="text-2xl font-semibold mb-4">Planificaciones</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li><a href="/docs/audiovisual-plan1.pdf" class="text-blue-400 underline">Planificación inicial 2023</a></li>
+      <li><a href="/docs/audiovisual-guion.pdf" class="text-blue-400 underline">Guión didáctico: creación de cortometraje</a></li>
+    </ul>
+  </div>
+
+  <div slot="galeria">
+    <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
+      <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
+    </div>
+  </div>
+
+  <div slot="videos">
+    <h2 class="text-2xl font-semibold mb-4">Videos Realizados</h2>
+    <div class="aspect-w-16 aspect-h-9 mb-6">
+      <iframe src="https://www.youtube.com/embed/TuIDejemplo" title="Video de estudiantes" class="w-full h-full rounded shadow" frameborder="0" allowfullscreen></iframe>
+    </div>
+    {/*
+    <video controls class="rounded-lg shadow w-full">
+      <source src={video1} type="video/mp4" />
+      Tu navegador no soporta este video.
+    </video>
+    */}
+  </div>
+
+  <div slot="otros">
+    <h2 class="text-2xl font-semibold mb-4">Otros Recursos</h2>
+    <p>Ejercicios prácticos, enlaces útiles o reflexiones docentes pueden ir aquí.</p>
+  </div>
+</TecnicaPage>
