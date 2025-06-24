@@ -3,6 +3,10 @@ import TecnicaPage from '../../components/TecnicaPage.astro';
 import audiovisual from '../../assets/images/audiovisual.jpg';
 import imagen1 from '../../assets/images/audiovisual1.jpg';
 import imagen2 from '../../assets/images/audiovisual2.jpg';
+import imagen3 from '../../assets/images/audiovisual3.jpg';
+import imagen4 from '../../assets/images/audiovisual4.jpg';
+import imagen5 from '../../assets/images/audiovisual5.jpg';
+import imagen6 from '../../assets/images/audiovisual6.jpg';
 // import video1 from '../../assets/videos/clip-aula.mp4'; // solo si usas video local
 ---
 
@@ -22,6 +26,10 @@ import imagen2 from '../../assets/images/audiovisual2.jpg';
   <div slot="galeria">
     <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
+      <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
+        <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
+      <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
       <img src={imagen1.src} alt="Grabación 1" class="rounded shadow" loading="lazy" />
       <img src={imagen2.src} alt="Edición" class="rounded shadow" loading="lazy" />
     </div>
