@@ -1,0 +1,245 @@
+---
+import TecnicaPage from "../../components/TecnicaPage.astro";
+import mascara from "../../assets/images/mascara.jpg";
+import imagen1 from "../../assets/images/mascara1.jpg";
+import imagen2 from "../../assets/images/mascaras2.jpg";
+import imagen3 from "../../assets/images/mascaras3.jpg";
+import imagen4 from "../../assets/images/mascaras4.jpg";
+import imagen5 from "../../assets/images/mascaras5.jpg";
+import imagen6 from "../../assets/images/mascaras6.jpg";
+import imagen7 from "../../assets/images/mascaras7.jpg";
+import imagen8 from "../../assets/images/mascaras8.jpg";
+import imagen9 from "../../assets/images/mascaras9.jpg";
+import imagen10 from "../../assets/images/mascaras10.jpg";
+import GalleryLightbox from "../../components/GalleryLightbox.astro";
+---
+
+<TecnicaPage
+  nombre="Máscaras"
+  descripcion="Exploramos la creación de máscaras como medio de expresión artística, identidad cultural y transformación creativa."
+  imagen={mascara}
+>
+  <div slot="planificaciones">
+    <h2 class="text-2xl font-semibold mb-4">Planificaciones</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>
+        <a href="/docs/mascaras-plan1.pdf" class="text-blue-400 underline"
+          >Planificación inicial 2023</a>
+      </li>
+      <li>
+        <a href="/docs/mascaras-tecnicas.pdf" class="text-blue-400 underline"
+          >Técnicas de construcción y decoración</a>
+      </li>
+      <li>
+        <a href="/docs/mascaras-historia.pdf" class="text-blue-400 underline"
+          >Historia y simbolismo de las máscaras</a>
+      </li>
+    </ul>
+  </div>
+
+  <div slot="galeria">
+    <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img
+        src={imagen1.src}
+        alt="Proceso de creación 1"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="0"
+      />
+      <img
+        src={imagen2.src}
+        alt="Máscara tradicional"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="1"
+      />
+      <img
+        src={imagen3.src}
+        alt="Decoración con pinturas"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="2"
+      />
+      <img
+        src={imagen4.src}
+        alt="Máscaras de animales"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="3"
+      />
+      <img
+        src={imagen5.src}
+        alt="Proceso de modelado"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="4"
+      />
+      <img
+        src={imagen6.src}
+        alt="Máscaras ceremoniales"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="5"
+      />
+      <img
+        src={imagen7.src}
+        alt="Detalles ornamentales"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="6"
+      />
+      <img
+        src={imagen8.src}
+        alt="Máscaras fantásticas"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="7"
+      />
+      <img
+        src={imagen9.src}
+        alt="Trabajo en equipo"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="8"
+      />
+      <img
+        src={imagen10.src}
+        alt="Resultado final"
+        class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+        loading="lazy"
+        data-index="9"
+      />
+    </div>
+  </div>
+
+  <div slot="videos">
+    <h2 class="text-2xl font-semibold mb-4">Videos del Proceso</h2>
+    <div class="space-y-6">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/gQ9AeOeJX1k"
+          title="Proceso de creación de máscaras"
+          class="w-full h-64 md:h-80 lg:h-96 rounded shadow video-iframe"
+          frameborder="0"
+          allowfullscreen></iframe>
+        <div
+          class="mt-3 text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto"
+        >
+          Este video documenta el proceso completo de creación de máscaras, desde el diseño inicial hasta los detalles finales de decoración.
+        </div>
+      </div>
+      
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/jsGT0yx8gKc"
+          title="Presentación de máscaras estudiantiles"
+          class="w-full h-64 md:h-80 lg:h-96 rounded shadow video-iframe"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+        <div
+          class="mt-3 text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto"
+        >
+          Presentación final donde los estudiantes muestran sus creaciones y explican el simbolismo de sus máscaras.
+        </div>
+      </div>
+      
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/qrW2V9qM8uY"
+          title="Máscaras - Proceso creativo"
+          class="w-full h-64 md:h-80 lg:h-96 rounded shadow video-iframe"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+        <div
+          class="mt-3 text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto"
+        >
+          Documentación del proceso creativo y técnicas utilizadas en la elaboración de máscaras artísticas.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div slot="otros">
+    <h2 class="text-2xl font-semibold mb-4">Otros Recursos</h2>
+    <div class="space-y-4">
+      <div class="bg-gray-800 p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3">Materiales Utilizados</h3>
+        <p class="text-gray-300 mb-3">
+          En este taller trabajamos con diversos materiales para la creación de máscaras:
+        </p>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Papel maché y cartón</li>
+          <li>Arcilla y plastilina</li>
+          <li>Pinturas acrílicas y témperas</li>
+          <li>Plumas, lentejuelas y elementos decorativos</li>
+          <li>Telas y materiales textiles</li>
+        </ul>
+      </div>
+      
+      <div class="bg-gray-800 p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3">Reflexión Pedagógica</h3>
+        <p class="text-gray-300">
+          La creación de máscaras permite a los estudiantes explorar conceptos de identidad, 
+          transformación y expresión personal. A través de este proceso, desarrollan habilidades 
+          técnicas mientras reflexionan sobre el simbolismo cultural y la importancia de las 
+          máscaras en diferentes sociedades.
+        </p>
+      </div>
+    </div>
+  </div>
+</TecnicaPage>
+
+<!-- Lightbox -->
+<GalleryLightbox />
+
+<style>
+  /* Alternativa: CSS personalizado para un efecto más suave */
+  .gallery-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .gallery-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Efecto de agrandamiento para videos */
+  .video-container {
+    transition: transform 0.3s ease;
+  }
+  
+  .video-iframe {
+    transition: all 0.3s ease;
+  }
+  
+  .video-container:hover {
+    transform: scale(1.02);
+  }
+  
+  .video-iframe:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Efecto al hacer clic/reproducir */
+  .video-iframe:focus,
+  .video-iframe:active {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+  }
+  
+  /* Responsive: mayor agrandamiento en pantallas grandes */
+  @media (min-width: 1024px) {
+    .video-container:hover {
+      transform: scale(1.03);
+    }
+    
+    .video-iframe:focus,
+    .video-iframe:active {
+      transform: scale(1.08);
+    }
+  }
+</style>
