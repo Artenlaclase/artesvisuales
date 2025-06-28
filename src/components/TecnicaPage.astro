@@ -6,6 +6,11 @@ const { nombre, descripcion, imagen } = Astro.props;
 
 const menuSections = [
   {
+    id: "inicio",
+    title: "Inicio",
+    icon: "🏠",
+  },
+  {
     id: "planificaciones",
     title: "Planificaciones",
     icon: "📋",
@@ -32,7 +37,7 @@ const menuSections = [
   <section class="bg-gray-900 text-white pt-24 pb-16 min-h-screen">
     <div class="container mx-auto px-4">
       <!-- Header de la página -->
-      <div class="mb-8">
+      <div id="inicio" class="mb-8">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">{nombre}</h1>
         <p class="text-lg text-center max-w-3xl mx-auto mb-10">{descripcion}</p>
         
@@ -186,11 +191,17 @@ const menuSections = [
         const targetElement = document.getElementById(targetId || '');
         
         if (targetElement) {
-          const navbarHeight = (document.querySelector('.section-menu') as HTMLElement)?.offsetHeight || 0;
-          const headerHeight = 80; // Ajusta según tu header principal
-          const offset = navbarHeight + headerHeight + 20;
+          let elementPosition;
           
-          const elementPosition = targetElement.offsetTop - offset;
+          // Si es el botón de inicio, ir al top de la página
+          if (targetId === 'inicio') {
+            elementPosition = 0;
+          } else {
+            const navbarHeight = (document.querySelector('.section-menu') as HTMLElement)?.offsetHeight || 0;
+            const headerHeight = 80; // Ajusta según tu header principal
+            const offset = navbarHeight + headerHeight + 20;
+            elementPosition = targetElement.offsetTop - offset;
+          }
           
           window.scrollTo({
             top: Math.max(0, elementPosition),
@@ -222,8 +233,9 @@ const menuSections = [
       });
     }, observerOptions);
 
-    // Observe all sections
-    sections.forEach(section => {
+    // Observe all sections including inicio
+    const allSections = document.querySelectorAll('#inicio, .scroll-section');
+    allSections.forEach(section => {
       if (section.id) {
         observer.observe(section);
       }
