@@ -1,11 +1,34 @@
 ---
 // src/components/TecnicaPage.astro
 import Layout from "../layouts/Layout.astro";
+import SectionMenu from "./SectionMenu.astro";
 const { nombre, descripcion, imagen } = Astro.props;
-
+const menuSections = [
+  {
+    id: "planificaciones",
+    title: "Planificaciones",
+    icon: "📋",
+  },
+  {
+    id: "galeria",
+    title: "Galería",
+    icon: "🖼️",
+  },
+  {
+    id: "videos",
+    title: "Videos",
+    icon: "🎥",
+  },
+  {
+    id: "otros",
+    title: "Recursos",
+    icon: "📚",
+  },
+];
 ---
 
 <Layout>
+  <SectionMenu sections={menuSections} />
   <section class="bg-gray-900 text-white pt-24 pb-16 min-h-screen">
     <div class="container mx-auto px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">{nombre}</h1>
@@ -17,8 +40,10 @@ const { nombre, descripcion, imagen } = Astro.props;
 
       <div class="max-w-5xl mx-auto text-white space-y-12">
         <slot name="planificaciones" />
+      
         <slot name="galeria" />
         <slot name="videos" />
+    
         <slot name="otros" />
       </div>
     </div>
