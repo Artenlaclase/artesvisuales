@@ -1,0 +1,68 @@
+---
+import TecnicaPage from "../../components/TecnicaPage.astro";
+import pintura from "../../assets/images/pintura.jpg";
+import imagen1 from "../../assets/images/pintura1.jpg";
+import imagen2 from "../../assets/images/pintura2.jpg";
+import imagen3 from "../../assets/images/pintura3.jpg";
+import imagen4 from "../../assets/images/pintura4.jpg";
+import imagen5 from "../../assets/images/pintura5.jpg";
+import imagen6 from "../../assets/images/pintura6.jpg";
+import GalleryLightbox from "../../components/GalleryLightbox.astro";
+---
+
+<TecnicaPage
+  nombre="Pintura"
+  descripcion="Exploramos diferentes técnicas pictóricas como herramienta de expresión personal y desarrollo de la sensibilidad artística."
+  imagen={pintura}
+>
+  <div slot="planificaciones" id="planificaciones">
+    <h2 class="text-2xl font-semibold mb-4">Planificaciones</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>
+        <a href="/docs/pintura-plan1.pdf" class="text-blue-400 underline">
+          Planificación inicial 2023
+        </a>
+      </li>
+      <li>
+        <a href="/docs/pintura-tecnicas.pdf" class="text-blue-400 underline">
+          Técnicas básicas de pintura
+        </a>
+      </li>
+      <li>
+        <a href="/docs/pintura-color.pdf" class="text-blue-400 underline">
+          Teoría del color aplicada
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div slot="galeria" id="galeria">
+    <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src={imagen1.src} alt="Mezcla de colores" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="0" />
+      <img src={imagen2.src} alt="Técnica acuarela" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="1" />
+      <img src={imagen3.src} alt="Pintura acrílica" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="2" />
+      <img src={imagen4.src} alt="Paisajes estudiantiles" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="3" />
+      <img src={imagen5.src} alt="Retratos expresivos" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="4" />
+      <img src={imagen6.src} alt="Obras abstractas" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="5" />
+    </div>
+  </div>
+
+  <div slot="otros" id="otros">
+    <h2 class="text-2xl font-semibold mb-4">Otros Recursos</h2>
+    <div class="space-y-4">
+      <div class="bg-gray-800 p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3">Materiales Utilizados</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Pinturas acrílicas y témperas</li>
+          <li>Acuarelas y pinceles variados</li>
+          <li>Papel para acuarela y lienzos</li>
+          <li>Paletas y espátulas</li>
+          <li>Medios auxiliares y barnices</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</TecnicaPage>
+
+<GalleryLightbox />
