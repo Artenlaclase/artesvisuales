@@ -1,0 +1,69 @@
+---
+/* /src/pages/tecnicas/collage.astro */
+import TecnicaPage from "../../components/TecnicaPage.astro";
+import collage from "../../assets/images/collage.jpg";
+import imagen1 from "../../assets/images/collage1.jpg";
+import imagen2 from "../../assets/images/collage2.jpg";
+import imagen3 from "../../assets/images/collage3.jpg";
+import imagen4 from "../../assets/images/collage4.jpg";
+import imagen5 from "../../assets/images/collage5.jpg";
+import imagen6 from "../../assets/images/collage6.jpg";
+import GalleryLightbox from "../../components/GalleryLightbox.astro";
+---
+
+<TecnicaPage
+  nombre="Collage"
+  descripcion="Desarrollamos la creatividad a través de la composición y yuxtaposición de elementos diversos, explorando texturas y narrativas visuales."
+  imagen={collage}
+>
+  <div slot="planificaciones" id="planificaciones">
+    <h2 class="text-2xl font-semibold mb-4">Planificaciones</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>
+        <a href="/docs/collage-plan1.pdf" class="text-blue-400 underline">
+          Planificación inicial 2023
+        </a>
+      </li>
+      <li>
+        <a href="/docs/collage-composicion.pdf" class="text-blue-400 underline">
+          Principios de composición
+        </a>
+      </li>
+      <li>
+        <a href="/docs/collage-materiales.pdf" class="text-blue-400 underline">
+          Materiales y técnicas de adherencia
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div slot="galeria" id="galeria">
+    <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src={imagen1.src} alt="Selección de materiales" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="0" />
+      <img src={imagen2.src} alt="Proceso de composición" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="1" />
+      <img src={imagen3.src} alt="Collage temático" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="2" />
+      <img src={imagen4.src} alt="Texturas mixtas" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="3" />
+      <img src={imagen5.src} alt="Collage narrativo" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="4" />
+      <img src={imagen6.src} alt="Obras finalizadas" class="w-full h-48 md:h-56 object-cover rounded shadow gallery-image hover:scale-105 transform transition-transform duration-300 cursor-pointer" loading="lazy" data-index="5" />
+    </div>
+  </div>
+
+  <div slot="otros" id="otros">
+    <h2 class="text-2xl font-semibold mb-4">Otros Recursos</h2>
+    <div class="space-y-4">
+      <div class="bg-gray-800 p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3">Materiales Utilizados</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Revistas y periódicos</li>
+          <li>Papeles de colores y texturas</li>
+          <li>Telas y materiales naturales</li>
+          <li>Pegamentos y adhesivos</li>
+          <li>Tijeras y herramientas de corte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</TecnicaPage>
+
+<GalleryLightbox />
