@@ -2,7 +2,9 @@
 // src/components/TecnicaPage.astro
 import Layout from "../layouts/Layout.astro";
 import SectionMenu from "./SectionMenu.astro";
+
 const { nombre, descripcion, imagen } = Astro.props;
+
 const menuSections = [
   {
     id: "planificaciones",
@@ -28,24 +30,57 @@ const menuSections = [
 ---
 
 <Layout>
-  <SectionMenu sections={menuSections} />
   <section class="bg-gray-900 text-white pt-24 pb-16 min-h-screen">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">{nombre}</h1>
-      <p class="text-lg text-center max-w-3xl mx-auto mb-10">{descripcion}</p>
-
-      <div class="flex justify-center mb-12">
-        <img src={imagen.src} alt={`Imagen de ${nombre}`} class="rounded-xl shadow-lg max-w-full h-auto" />
+      <!-- Header de la página -->
+      <div class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">{nombre}</h1>
+        <p class="text-lg text-center max-w-3xl mx-auto mb-10">{descripcion}</p>
+        
+        <div class="flex justify-center mb-8">
+          <img 
+            src={imagen.src} 
+            alt={`Imagen de ${nombre}`} 
+            class="rounded-xl shadow-lg max-w-full h-auto" 
+          />
+        </div>
       </div>
 
-      <div class="max-w-5xl mx-auto text-white space-y-12">
-        <slot name="planificaciones" />
-      
-        <slot name="galeria" />
-        <slot name="videos" />
-    
-        <slot name="otros" />
+      <!-- Menú de navegación - Posición fija relativa al contenedor -->
+      <div class="relative">
+        <SectionMenu sections={menuSections} />
+        
+        <!-- Contenido de las secciones -->
+        <div class="max-w-5xl mx-auto text-white space-y-16">
+          <section id="planificaciones" class="scroll-section">
+            <slot name="planificaciones" />
+          </section>
+          
+          <section id="galeria" class="scroll-section">
+            <slot name="galeria" />
+          </section>
+          
+          <section id="videos" class="scroll-section">
+            <slot name="videos" />
+          </section>
+          
+          <section id="otros" class="scroll-section">
+            <slot name="otros" />
+          </section>
+        </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Ajuste para compensar el header fijo y el menú */
+  .scroll-section {
+    scroll-margin-top: 120px; /* Ajusta según la altura de tu header + menú */
+  }
+  
+  /* Asegurar que las secciones tengan suficiente espacio */
+  .scroll-section:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+</style>

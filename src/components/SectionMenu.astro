@@ -11,8 +11,8 @@ interface Props {
 const { sections } = Astro.props;
 ---
 
-<nav class="section-menu sticky top-4 z-10 mb-8">
-  <div class="bg-gray-800/90 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-gray-700">
+<nav class="section-menu sticky top-20 z-50 mb-12">
+  <div class="bg-gray-800/95 backdrop-blur-md rounded-lg p-4 shadow-xl border border-gray-600">
     <h3 class="text-lg font-semibold mb-3 text-center text-gray-200">Navegación</h3>
     <ul class="flex flex-wrap gap-2 justify-center">
       {sections.map((section) => (
@@ -108,9 +108,15 @@ const { sections } = Astro.props;
         const targetElement = document.getElementById(targetId || '');
         
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          const navbarHeight = (document.querySelector('.section-menu') as HTMLElement)?.offsetHeight || 0;
+          const headerHeight = 80; // Ajusta según tu header
+          const offset = navbarHeight + headerHeight + 20;
+          
+          const elementPosition = targetElement.offsetTop - offset;
+          
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
           });
         }
       });
@@ -119,8 +125,8 @@ const { sections } = Astro.props;
     // Highlight active section on scroll
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
+      rootMargin: '-15% 0px -70% 0px',
+      threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -142,6 +148,15 @@ const { sections } = Astro.props;
     sections.forEach(section => {
       if (section.id && ['planificaciones', 'galeria', 'videos', 'otros'].includes(section.id)) {
         observer.observe(section);
+      }
+    });
+
+    // Smooth scroll offset adjustment
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.section-menu');
+      if (navbar) {
+        const navbarHeight = (navbar as HTMLElement).offsetHeight;
+        document.documentElement.style.setProperty('--scroll-offset', `${navbarHeight + 60}px`);
       }
     });
   });
