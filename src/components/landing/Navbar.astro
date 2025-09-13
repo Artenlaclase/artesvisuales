@@ -50,6 +50,7 @@
             <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium nav-link" data-link="home">Home</a>
             <a href="/#experiences" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium nav-link" data-link="experiences">About me</a>
             <a href="/tecnicas" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium nav-link" data-link="tecnicas">Projects</a>
+            <a href="/trayectoria" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium nav-link" data-link="trayectoria">Trajectory</a>
           </div>
         </div>
       </div>
@@ -82,9 +83,10 @@
 
   <!-- Menú móvil -->
   <div id="mobile-menu" class="hidden sm:hidden px-2 pt-2 pb-3 space-y-1">
-    <a href="/" class="block bg-gray-900 text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
-    <a href="/#experiences" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">About me</a>
-    <a href="/tecnicas" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
+    <a href="/" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium mobile-link" data-link="home">Home</a>
+    <a href="/#experiences" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium mobile-link" data-link="experiences">About me</a>
+    <a href="/tecnicas" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium mobile-link" data-link="tecnicas">Projects</a>
+    <a href="/trayectoria" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium mobile-link" data-link="trayectoria">Trajectory</a>
    <!--  <a href="#" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contacto</a> -->
     
     <!-- Redes sociales en versión móvil -->
@@ -141,12 +143,18 @@
                       link.classList.remove('text-gray-300');
                   });
               }
-          } else if (currentPath === '/tecnicas') {
+      } else if (currentPath === '/tecnicas') {
               // Página de técnicas
               document.querySelectorAll('[data-link="tecnicas"]').forEach(link => {
                   link.classList.add('bg-gray-700', 'text-white');
                   link.classList.remove('text-gray-300');
               });
+      } else if (currentPath === '/trayectoria' || currentPath.startsWith('/trayectoria/')) {
+        // Página de trayectoria
+        document.querySelectorAll('[data-link="trayectoria"]').forEach(link => {
+          link.classList.add('bg-gray-700', 'text-white');
+          link.classList.remove('text-gray-300');
+        });
           }
       };
 
