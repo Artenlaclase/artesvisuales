@@ -10,7 +10,7 @@ const { nombre, imagen, delay, url } = Astro.props as Props;
 ---
 
 <div
-  class="max-w-sm w-full  border border-gray-200 rounded-lg shadow-sm bg-gray-800  overflow-hidden"
+  class="max-w-sm w-full  border border-gray-700 rounded-lg shadow-sm bg-gray-800  overflow-hidden"
   data-aos="fade-up"
   data-aos-duration="800"
   data-aos-delay={delay}
@@ -18,7 +18,7 @@ const { nombre, imagen, delay, url } = Astro.props as Props;
   <img src={imagen.src} alt={nombre} class="w-full h-48 object-cover rounded-t-lg" />
   <div class="p-5">
     <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{nombre}</h5>
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Explora esta técnica artística y sus aplicaciones en el aula.</p>
+    <p class="mb-3 font-normal text-gray-300">Explora esta técnica artística y sus aplicaciones en el aula.</p>
     
     <!-- Botón condicional mejorado -->
     {typeof url !== 'undefined' ? (
