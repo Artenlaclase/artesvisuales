@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const posts = await Astro.glob("../blog/*.mdx");
+const sorted = posts
+  .map((p) => ({ ...p, date: p.frontmatter?.pubDate ? new Date(p.frontmatter.pubDate) : new Date(0) }))
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
+---
+
+<Layout title="Blog | Arte en la Clase" description="Artículos, experiencias y recursos de Arte en la Clase.">
+  <main class="bg-gray-900 text-white pt-24 min-h-screen">
+    <section class="container mx-auto px-4 max-w-6xl">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-6">Blog</h1>
+      <p class="text-gray-300 mb-10 max-w-3xl">Novedades, reflexiones y recursos sobre educación artística, proyectos y técnicas.</p>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {sorted.map((post) => (
+          <PostCard
+            url={post.url}
+            title={post.frontmatter?.title ?? 'Sin título'}
+            description={post.frontmatter?.description ?? ''}
+            pubDate={post.frontmatter?.pubDate}
+            heroImage={post.frontmatter?.heroImage}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
