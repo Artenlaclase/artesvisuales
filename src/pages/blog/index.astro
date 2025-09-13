@@ -2,9 +2,20 @@
 import Layout from "../../layouts/Layout.astro";
 import PostCard from "../../components/PostCard.astro";
 
-const posts = await Astro.glob("../blog/*.mdx");
-const sorted = posts
-  .map((p) => ({ ...p, date: p.frontmatter?.pubDate ? new Date(p.frontmatter.pubDate) : new Date(0) }))
+const modules = import.meta.glob("../blog/*.mdx", { eager: true });
+const sorted = Object.entries(modules)
+  .map(([path, mod]: [string, any]) => {
+    const fm = mod.frontmatter ?? {};
+    const slug = path.replace("../blog/", "").replace(".mdx", "");
+    const url = `/blog/${slug}/`;
+    const pubDate = fm.pubDate;
+    const heroImage = mod.heroImage ?? fm.heroImage;
+    return {
+      url,
+      frontmatter: { ...fm, heroImage },
+      date: pubDate ? new Date(pubDate) : new Date(0),
+    };
+  })
   .sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
